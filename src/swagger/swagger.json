@@ -1,0 +1,57 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "API NodeJS Devaria"
+    },
+    "basePath": "/api",
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/login": {
+            "post": {
+                "summary": "Authenticate user and return access token",
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/LoginSuccess"
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/LoginInsuccess"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "LoginSuccess": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string",
+                    "example": "npoaibnc90-hj9hcen002eh"
+                }
+            }
+        },
+        "LoginInsuccess": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "number",
+                    "example": 400
+                },
+                "error": {
+                    "type": "string",
+                    "example": "Invalid enter parameters"
+                }
+            }
+        }
+    }
+}
